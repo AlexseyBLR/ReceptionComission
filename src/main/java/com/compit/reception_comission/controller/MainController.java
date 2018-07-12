@@ -1,13 +1,11 @@
 package com.compit.reception_comission.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.compit.reception_comission.entity.User.UserForLogIn;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -17,13 +15,21 @@ public class MainController {
 
     //SecondPageLink
     @RequestMapping(value = "/second", method = RequestMethod.GET)
-    public String redirectSecond(ModelMap modelMap){
+    public String redirectSecond(ModelMap modelMap) {
+
+        modelMap.addAttribute("user", new UserForLogIn());
+
         return "secondPage";
     }
 
     //homePageLink
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public String redirectHome(ModelMap modelMap){
+    @RequestMapping(value = "/registration", method = RequestMethod.POST)
+    public String redirectHome(ModelMap modelMap, @ModelAttribute("user") UserForLogIn user) {
+        if(user.getUserName().equals("qqq")&&user.getPassword().equals("aaa")){
+            modelMap.addAttribute("user", user);
+            return "result";
+        }
+//        modelMap.addAttribute("user", user.getUserName() + user.getPassword());
         return "mainPage";
     }
 

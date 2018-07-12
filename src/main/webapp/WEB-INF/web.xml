@@ -33,6 +33,11 @@
     <url-pattern>/home</url-pattern>
   </servlet-mapping>
 
+  <servlet-mapping>
+    <servlet-name>servlet</servlet-name>
+    <url-pattern>/registration</url-pattern>
+  </servlet-mapping>
+
 
 
 
