@@ -10,7 +10,7 @@
     <title>Main page</title>
 </head>
 <body>
-<H1>Hello world!</H1>
+<H1>Hello world!!</H1>
 
 <form action="/second" method="get">
     <input type="submit" class="btn btn-primary" value="Go to"/>
